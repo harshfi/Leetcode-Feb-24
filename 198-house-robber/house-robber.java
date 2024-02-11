@@ -2,17 +2,21 @@ class Solution {
     public int rob(int[] nums) {
         int ans[] = new int [nums.length];
 
-        ans[0]=nums[0];
+        int a=nums[0], b=0,c;
+        if(nums.length==1) return nums[0];
         if(nums.length>=2)
-        ans[1]= Math.max(nums[0],nums[1]);
+        b= Math.max(nums[0],nums[1]);
 
         
 
         for(int i=2;i<nums.length;i++){
 
-            ans[i]= Math.max(ans[i-1],ans[i-2]+nums[i]);
+            c= Math.max(b,a+nums[i]);
+            a=b;
+            b=c;
+
         }
-        return  ans[nums.length-1];
+        return  b;
         
     }
 }
