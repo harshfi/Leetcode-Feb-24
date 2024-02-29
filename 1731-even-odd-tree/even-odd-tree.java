@@ -46,6 +46,7 @@ class Solution {
                  for(int j=i+1;j<list.size();j++){
 
                      if(level %2==0 &&  list.get(i)>=list.get(j) ) return false;
+                     
                      else if(level %2!=0 && list.get(i)<=list.get(j)) return false;
                    
                  }
