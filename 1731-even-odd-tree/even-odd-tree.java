@@ -38,7 +38,7 @@ class Solution {
                
 
             }
-            System.out.println(list+ " "+ level);
+            // System.out.println(list+ " "+ level);
 
             for(int i=0;i<list.size()-1;i++){
 
