@@ -5,18 +5,19 @@ class Solution {
 
         for(int i=0;i<s.length();i++){
             if(s.charAt(i)=='1') one++;
-        }
-            String str="";
+        }    
+         StringBuilder str=new StringBuilder();
+           
         for(int i=0;i<s.length()-1;i++){
             if(one>1){
-              str=str+1;
+              str.append(1);
               one--;
             }
             else{
-                str=str+0;
+                str.append(0);
             }
         }
-       return str=str+1;
+       return str.append(1).toString();
 
         
     }
