@@ -1,13 +1,17 @@
 class Solution {
     public int minSteps(int n) {
-       if(n==1) return 0; 
-       int dp[][]= new int [n+1][n+1];
-
-       for(int i []: dp){
-           Arrays.fill(i,-1);
-       }
-
-       return  find(1,n, 1,dp)+1;
+      int ans=0;
+      for(int i=2;i*i<=n;){
+          if(n%i==0){
+              ans+=i;
+              n/=i;
+          }
+          else{
+              i++;
+          }
+      }
+      if(n!=1) ans+=n;
+       return  ans;
         
     }
     public int find(int screen , int n,int i,int dp[][]){
