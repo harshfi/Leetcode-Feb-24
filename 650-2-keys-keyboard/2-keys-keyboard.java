@@ -1,16 +1,25 @@
 class Solution {
     public int minSteps(int n) {
        if(n==1) return 0; 
-       return  find(1,n, 1)+1;
+       int dp[][]= new int [n+1][n+1];
+
+       for(int i []: dp){
+           Arrays.fill(i,-1);
+       }
+
+       return  find(1,n, 1,dp)+1;
         
     }
-    public int find(int screen , int n,int i){
+    public int find(int screen , int n,int i,int dp[][]){
+
         if(n==screen) return 0;
         if(n<screen) return 1000000;
-        int paste = find(screen+i,n,i)+1;
-        int copy_paste= find(2*screen,n,screen)+2;
+         
+         if(dp[screen][i]!=-1) return dp[screen][i];
+        int paste = find(screen+i,n,i,dp)+1;
+        int copy_paste= find(2*screen,n,screen,dp)+2;
 
-        return Math.min(paste,copy_paste);
+        return dp[screen][i]= Math.min(paste,copy_paste);
 
     }
 }
