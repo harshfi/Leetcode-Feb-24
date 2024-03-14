@@ -1,13 +1,10 @@
 class Solution {
     public int pivotInteger(int n) {
-         double sum=(double)(n*(n+1))/2;
-        int ps=0;
+
+         double x=Math.sqrt((n*(n+1))/2);
+
         
-        for(int i=1;i<=n;i++){
-            ps+=i;
-          if(i+sum-ps==ps)   return i;
-        }
-        return -1;
+        return x%1 != 0?-1 : (int)x;
         
     }
 }
